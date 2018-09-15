@@ -1,0 +1,23 @@
+<!-- ng-app="moviesApp" -->
+<div class="form-group" ng-app="moviesApp">
+            <form name="myform" novalidate>
+
+                Username:
+                <input class="form-control" name="username" type="text" ng-model="username" ng-required="true"/>
+                <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched">You must fill username</p>
+                Email:
+                <input class="form-control" name="email"  type="text" ng-model="email" ng-required="true" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"/>
+                <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Please fill valid email</p>
+                Password:
+                <input type="password" name="password"  class="form-control" ng-model="password" ng-required="true" ng-minlength="6" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/"/>
+                <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Password should be atleast 6 characters long
+                    and should contain one number,one character and one special character</p>
+                <br/>
+              
+                <button type="submit" ng-disabled="myform.$invalid" class="btn btn-primary" ng-click="signup()">Sign Up</button>
+            </form>
+            <div ng-if="errors.signupError" class="error">
+                <br/>
+                {{errors.signupErrorMessage}}
+            </div>
+</div>

@@ -1,0 +1,54 @@
+<div ng-model="userDetails">
+    <div class="row">
+        <h1 class="col col-9">{{userDetails.username}}</h1>
+        <a ng-if="currentUser.isAdmin" class="btn-new-movie btn btn-success col col-2 pull-right" href="#!add-movie">Add new movie</a>
+    </div>
+</div>
+<hr/>
+<h3>Favorites</h3>
+<div class="row movie-list-row">
+    <div class="single-movie-box col col-3" ng-repeat="movie in userDetails.favorites">
+        <div class="card" ng-click="openMoviePage(movie.id)">
+            <div class="card-thumb">
+                <img ng-src="{{movie.coverImageUrl}}" class="img-thumb" />
+            </div>
+            <div class="card-details">
+                <p class="card-title">{{movie.title | limitTo:15}}{{movie.title.length > 15 ? '...' : ''}}</p>
+                <span class="span-category">{{movie.category.replace('|', ", ") | limitTo:30}}{{movie.category.length > 30 ? '...' : ''}}</span>
+                <span class="rating">{{movie.rating > 0 ? (movie.rating|number:1) : '--'}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container">
+        <h5> Reviews</h5>
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="review in userDetails.reviews">
+                    <div class="col-md-12 row">
+                        <div class="col col-8">
+                            {{review.body}}
+                        </div>
+                        <span class="col col-2 pull-right">
+                            <!-- Button trigger modal -->
+                            <a href="#!user/{{currentUser.userId}}/delete-review/{{review.id}}" class="btn btn-danger" >
+                                Delete
+                            </a>
+                        </span>
+
+
+                        <div class="col col-2 justify-content-end">
+                            <span class=" rating"> rating: {{review.rating|number:1}}</span>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,98 @@
+<div ng-model="movieDetail">
+    <div class="row">
+        <h1 class="col col-7">{{movieDetail.title}}</h1> 
+        <a ng-if="currentUser.isAdmin" class="btn-new-movie btn btn-success col col-2 pull-right" href="#!{{movieDetail.id}}/edit-movie" ng-click="editMovie()">Edit</a>
+        <a ng-if="currentUser.isAdmin" class="btn-new-movie btn btn-danger col col-2 pull-right" href="#!{{movieDetail.id}}/delete-movie" ng-click="deleteMovie()">Delete</a>
+    </div>
+
+    <div class="row">
+        <div class=" col-md-4">
+            <img ng-src="{{movieDetail.coverImageUrl}}" class="img-movie-card" />
+        </div>
+
+        <div class="col-md-4">
+            <div class=" row list-group">
+                <h5>Actors</h5>
+
+                <ul class="list-group">
+                    <li class="list-group-item">{{movieDetail.actor1}}</li>
+                    <li class="list-group-item">{{movieDetail.actor2}}</li>
+                    <li class="list-group-item">{{movieDetail.actor3}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <h5>Description : </h5>
+                    {{movieDetail.description}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <h5>Year : </h5>
+                    {{movieDetail.year}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <h5>Duration : </h5>
+                    {{movieDetail.duration}}
+                </div>
+            </div>
+
+            <div class="row" style="margin:10px">
+                <button ng-if="isLoggedin && !isFavorite" class="btn btn-warning" ng-click="addFavorite()"> Add to favorites</button>
+                <button ng-if="isLoggedin && isFavorite" class="btn btn-danger" ng-click="removeFavorite()"> Remove from favorites</button>
+            </div>
+            <div class="row" style="margin:10px">
+                <a ng-if="isLoggedin && !isReviewed" href="#!/details/{{movieDetail.id}}/addReview" class="btn btn-primary"> Add a Review</a>
+                <a ng-if="isLoggedin && isReviewed" href="#!/details/{{movieDetail.id}}/editReview/{{whichReview}}" class="btn btn-secondary">Edit a Review</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <h3 class="col-md-8">Reviews</h3>
+                <div class="row col-md-2" style="margin:5px">
+                    <h4> Overall Rating: </h4>
+                    <h6 class="rating">{{movieDetail.rating|number:1}}</h6>
+                </div>
+                <div class="row col-md-2">
+                    <h4>Total Reviews: </h4>
+                    <h6 class="boxed-total">{{movieDetail.reviewCount}}</h6>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="review in movieDetail.reviews | orderBy:'rating':'reverse'">
+                    <div class="col-md-12 row">
+                        <div class="col-md-10">
+                            {{review.body}}
+                        </div>
+
+                        <div class="col-md-2 justify-content-end">
+                            <span class=" rating"> rating: {{review.rating|number:1}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <h6>
+                                <i>by
+                                    <b>{{review.appUser.username}}</b>
+                                </i>
+                            </h6>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</div>

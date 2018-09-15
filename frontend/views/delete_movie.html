@@ -1,0 +1,12 @@
+<h1>Delete Movie</h1>
+<p>
+   <h2> <b>Are you sure you want to delete this movie?</b></h2>
+</p>
+<p>
+    
+    <h4>Title: {{movie.title}}</h4>
+    <h5>Description: {{movie.description}}</h5>
+
+</p>
+<input type="button" value="Yes, Delete" class="btn btn-danger" ng-click="deleteMovie()" />
+<a class="btn btn-default" href="#!details/{{movie.id}}">No, Go Back</a>

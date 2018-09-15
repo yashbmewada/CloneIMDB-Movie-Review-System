@@ -1,0 +1,13 @@
+{
+  "db": {
+    "host": "localhost",
+    "database": "imdbcloneDB",
+    "name": "db",
+    "post": 27017,
+    "connector": "mongodb"
+  },
+  "mem": {
+    "name": "mem",
+    "connector": "memory"
+  }
+}

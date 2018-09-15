@@ -1,0 +1,153 @@
+
+
+.single-movie-box{
+    margin-bottom: 10px;
+    width: 100%;
+    padding-left: 7px;
+    padding-right: 7px;  
+}
+
+h1 {
+    font-display: block;
+      text-shadow: 1px 1px #000;
+      margin: 0px;
+  }
+
+.card{
+    background-color: #f8f8f8;
+    margin: 2px;
+    border-color: #636363;
+    border-radius: 8px;
+
+}
+
+.card-details{
+    margin: 8px;
+}
+
+.card:hover { 
+    box-shadow:0px 3px 8px #636363;
+}
+
+.card-thumb{
+    text-align: center;
+    height: 250px;
+    width: 100%;
+}
+
+.card-title{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.img-thumb{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.movie-list-row{
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+a{
+    text-decoration-line: none;
+    margin: 5px;
+}
+
+/* .card>a{
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+} */
+
+.rating{
+    border:0.5px solid blue; border-radius: 2px;padding:1px 10px 1px 10px;color:blue
+}
+
+.boxed-total{
+    border:0.5px solid red; border-radius: 2px;padding:1px 10px 1px 10px;color:red
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched{
+    border: 2px solid green;
+}
+
+.error{
+    color: red;
+      }
+
+.img-movie-card{
+    height: 500px;
+    width:300px;
+    object-fit: fill
+}
+
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .progress {
+    line-height: 15px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+
+.header{
+    box-shadow: 0px 3px 8px #323232;
+    text-align: center;
+    align-content: center;
+    font-size:25px;
+    background-color: #343a40;
+    color: white;
+}
+
+.btn-new-movie{
+    width: 100%;
+}
+
+.span-category{
+    display: block;
+    font-size: 14px;
+    color: rgb(131, 131, 131);
+}
+
+.core{
+    background-color: #f8f8f8;
+    margin: 6px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px; 
+    box-shadow:0px 3px 8px #323232;
+    border-radius: 8px;
+}
+
+body {
+    background-color: #c0c0c0;
+    font-family:serif;
+}
+
+body.modal-open {
+    overflow: visible;
+}

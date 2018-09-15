@@ -1,0 +1,10 @@
+<h1>Delete Review?</h1>
+<hr>
+<p>
+    <b>Comment :</b> <span>{{review.body}}</span>
+    <hr>
+    <b>Rating : </b><span class="rating"> {{review.rating}} </span>
+</p>
+
+<input type="button" value="Yes, Delete" class="btn btn-danger" ng-click="deleteReview()" />
+<a class="btn btn-default" href="#!user/{{whichUser}}">No, Go Back</a>

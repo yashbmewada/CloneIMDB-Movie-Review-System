@@ -1,0 +1,19 @@
+<div>
+    <form class="form-group" >
+        <div><h5>Ratings</h5></div>
+        <div>
+            <div class="form-check form-check-inline" ng-repeat="rating in [1,1.5,2,2.5,3,3.5,4,4.5,5]">
+                <input class="form-check-input" ng-model="review.rating" type="radio" name="inlineRadioOptions" id="inlineRadio1" ng-value="{{rating}}">
+                <label class="form-check-label" for="inlineRadio1">{{rating}}</label>
+            </div>
+        </div>
+        <div>
+        <label for="review-content"><h5>Review</h5></label>
+        <textarea class="form-control" id="review-content" ng-model="review.body"></textarea>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="button" ng-click="addReview()" style="margin:10px">Save</button>
+            <a class="btn btn-default" href="#!/details/{{review.movieId}}">Cancel</a>
+        </div>
+    </form>
+</div>

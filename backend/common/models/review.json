@@ -1,0 +1,40 @@
+{
+  "name": "Review",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": true
+    },
+    "body": {
+      "type": "string"
+    },
+    "movieId": {
+      "type": "string",
+      "required": true
+    },
+    "appUserId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "movie": {
+      "type": "belongsTo",
+      "model": "Movie",
+      "foreignKey": ""
+    },
+    "appUser": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

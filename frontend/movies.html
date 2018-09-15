@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clone IMDB WPL PROJECT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="libs/angular.js"></script>
+    <script src="libs/angular-route.js"></script>
+    <script src="libs/angular-cookies.js"></script>
+    <script src="libs/ng-file-upload/ng-file-upload.js"></script>
+    <script src="libs/ng-file-upload/ng-file-upload-shim.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="scripts/main.js"></script>
+    <script src="scripts/home_controller.js"></script>
+    <script src="scripts/auth_service.js"></script>
+    <script src="scripts/auth_controller.js"></script>
+    <script src="scripts/user_controller.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-app="moviesApp" >
+    <div class="header">
+            <nav class="navbar navbar-dark bg-dark">
+                <a href="#" class="navbar-brand"><h3>CloneIMDB</h3></a>
+
+                <form class="form-inline my-2 my-lg-0" ng-keypress="$event.keyCode == 13 && showHomePage()">
+                    <input class="form-control form-control-inline mr-sm-2" type="search" ng-model="searchTerm" ng-keypress="$event.keyCode == 13 && showHomePage()" placeholder="Search" ng-change="onQueryUpdated()" aria-label="Search">
+                    <div class="input-group-append">
+                            <button class="btn btn-primary" ng-click="showHomePage()" type="button" >Search</button>
+                    </div>
+                </form>
+                      <ul ng-if="!isLoggedin" class="nav justify-content-end">
+                        <li class="nav-link"><a href="#!login" class="btn btn-primary">Login</a></li>
+                        <li class="nav-link"><a href="#!signup" class="btn btn-success">Signup</a></li>
+                      </ul>
+
+                      <ul  ng-if="isLoggedin" class="nav justify-content-end">
+                          <!-- <li class="nav-link">
+                              <div class="dropdown">
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      {{currentUser.username}}
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a href="#!user/{{currentUser.userId}}">Profile</a>
+                                  </div>
+                              </div>
+                          </li> -->
+
+                        <li class="nav-link"><a href="#!user/{{currentUser.userId}}" class="btn btn-primary">{{currentUser.username}}</a></li>
+                        <li class="nav-link"><a href="" class="btn btn-secondary" ng-click="signout()">Signout</a></li>
+                      </ul>
+                      
+
+             </nav>
+    </div>
+    <!-- <div >
+        
+                       
+       
+        <div class="container">
+            <div class="col-xs-offset-2 col-xs-6">
+               
+        
+                <div ng-view></div>
+            </div>
+        </div>
+    </div> -->
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col col-1">
+                </div>
+                <div class="col col-10 core">
+                    <div ng-view></div>
+                </div>
+            </div>
+            <div class="col col-1">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

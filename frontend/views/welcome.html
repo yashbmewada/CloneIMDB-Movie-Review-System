@@ -1,0 +1,36 @@
+<div>
+  <!--
+    <button class="btn btn-primary" ng-click="loadMovies()">Click to load movies</button>
+    -->
+  
+  <div class="row movie-list-row">
+        <div class="single-movie-box col col-3" ng-repeat="movie in movies">
+          <div class="card" ng-click="openMoviePage(movie.id)">
+            <div class="card-thumb">
+                <img ng-src="{{movie.coverImageUrl}}" class="img-thumb" />
+            </div>
+            <div class="card-details">
+              <p class="card-title">{{movie.title | limitTo:15}}{{movie.title.length > 15 ? '...' : ''}}</p>
+              <span class="span-category">{{movie.category.replace('|', ", ") | limitTo:30}}{{movie.category.length > 30 ? '...' : ''}}</span>
+              <span class="rating" >{{movie.rating > 0 ? (movie.rating|number:1) :  '--'}} </span>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div ng-show="movies.length == 0">No Result found</div>
+  <!-- pagination -->
+  <nav aria-label="..." ng-show="movies.length > 0">
+    <ul class="pagination">
+      <li class="page-item" ng-class="{'disabled': isPrevEnable !=  true}">
+        <a class="page-link" ng-click="updateCurrentPage(currentPagePosition-1)">Previous</a>
+      </li>
+
+      <li class="page-item" ng-repeat="i in getNumbers(totalPages) track by $index" ng-class="{'active': $index+1 ==  currentPagePosition}">
+        <a class="page-link" ng-click="updateCurrentPage($index+1)">{{$index+1}}</a></li>
+      <li class="page-item" ng-class="{'disabled': isNextEnable !=  true}">
+        <a class="page-link" ng-click="updateCurrentPage(currentPagePosition+1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,71 @@
+{
+  "name": "Movie",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "trailerUrl": {
+      "type": "string"
+    },
+    "director": {
+      "type": "string"
+    },
+    "year": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "actor1": {
+      "type": "string"
+    },
+    "actor2": {
+      "type": "string"
+    },
+    "actor3": {
+      "type": "string"
+    },
+    "imdbUrl": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "coverImageUrl": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Review",
+      "foreignKey": "movieId"
+    },
+    "fans": {
+      "type": "hasAndBelongsToMany",
+      "model": "AppUser",
+      "foreignKey": "",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-group" name="myForm">
+                <label>Movie Name : </label>
+                <input type="text" name="movieName" ng-model="newMovie.title" class="form-control"/>
+                <label>Director : </label>
+                <input type="text" name="movieName" ng-model="newMovie.director" class="form-control"/>
+                <label>Actor 1 : </label>
+                <input type="text" name="movieName" ng-model="newMovie.actor1" class="form-control"/>
+                <label>Actor 2 : </label>
+                <input type="text" name="movieName" ng-model="newMovie.actor2" class="form-control"/>
+                <label>Actor 3 : </label>
+                <input type="text" name="movieName" ng-model="newMovie.actor3" class="form-control"/>
+                <label>Year : </label>
+                <input type="number" name="movieName" ng-model="newMovie.year" class="form-control" ng-maxlength="4"/>
+                <label>Description : </label>
+                  <label for=""></label>
+                  <textarea class="form-control" ng-model="newMovie.description" name="" id="" rows="3"></textarea>
+                <label>Duration: (minutes)</label>
+                <input type="number" class="form-control" ng-model="newMovie.duration"/>
+                  <br>Photo:
+                  <input type="file" ngf-select ng-model="picFile" name="file"    
+                         accept="image/*" ngf-max-size="2MB" required
+                         ngf-model-invalid="errorFile">
+                  <i ng-show="myForm.file.$error.required">*required</i><br>
+                  <i ng-show="myForm.file.$error.maxSize">File too large 
+                      {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+                  <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+                  <br>
+                  <span class="progress" ng-show="picFile.progress >= 0">
+                    <div style="width:{{picFile.progress}}%" 
+                        ng-bind="picFile.progress + '%'"></div>
+                  </span>
+                  <br>
+                <input ng-disabled="!myForm.$valid" type="button" class="btn btn-primary" value="Save" ng-click="addMovie(picFile)">
+                <a class="btn btn-secondary" href="#">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

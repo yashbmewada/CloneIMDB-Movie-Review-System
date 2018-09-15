@@ -1,0 +1,33 @@
+<div>
+
+    <div class="form-group" clas="col-md-6 col-md-offset-4">
+        <form name="myform">
+            Username:
+            <input class="form-control" name="username" id="email" type="text" ng-model="username" ng-required="true"/>
+            <p class="error validationerror" ng-show="myform.username.$invalid && myform.username.$touched">You must fill username</p>
+            Password:
+            <input type="password" name="password" id="password" class="form-control" ng-model="password" ng-required="true" ng-minlength="6" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/"/>
+            <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">Enter a valid password</p>
+
+        <br/>
+            <button type="button" data-target="modal1" ng-disabled="myform.$invalid" class="modal-trigger btn btn-primary" ng-click="login()">Login </button>
+        </form>
+
+        <div ng-if="errors.loginError" class="error">
+            <br/>
+            <p>Username or Password not correct</p>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+     <div class="modal-content">
+      <h4 ng-if="isLoggedin && !errors.loginError">Login Successful</h4>
+      <h4 ng-if="!isLoggedin && errors.loginError">Login Failed</h4>
+    </div>
+    <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-blue btn" ng-if="isLoggedin && !errors.loginError">Okay</a>
+      <a href="#!login" class="modal-action modal-close waves-effect waves-red btn" ng-if="!isLoggedin && errors.loginError">Try Again</a>
+    </div>
+  </div>
+</div>
